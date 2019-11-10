@@ -1,0 +1,29 @@
+{% extends "root.html" %}
+
+{% block content %}
+<form action="" method="post" novalidate>
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  {% endwith %}
+  {{ form.hidden_tag() }}
+
+  {{ form.email.label }} {{ form.email() }}
+  {% for error in form.email.errors %}
+  <span>{{ error }}</span>
+  {% endfor %}
+
+  {{ form.password.label }} {{ form.password() }}
+  {% for error in form.password.errors %}
+  <span>{{ error }}</span>
+  {% endfor %}
+
+  {{ form.remember_me.label }} {{ form.remember_me() }}
+  {{ form.submit() }}
+</form>
+{% endblock %}

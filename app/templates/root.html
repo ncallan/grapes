@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="static/css/master.css">
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Grapes</title>
+    {% endif %}
+  </head>
+  <body>
+    <nav>
+      {% if current_user.is_anonymous %}
+      <a href="{{ url_for('index') }}">Home</a>
+      <a href="{{ url_for('signin') }}" class="split-right">Sign In</a>
+      <a href="{{ url_for('register') }}">Get Started</a>
+      {% else %}
+      <a href="{{ url_for('home') }}">Home</a>
+      <a href="{{ url_for('account') }}" class="split-right">Account</a>
+      <a href="{{ url_for('signout') }}">Sign Out</a>
+      {% endif %}
+    </nav>
+    {% block content %}{% endblock %}
+  </body>
+</html>

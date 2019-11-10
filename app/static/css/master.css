@@ -1,0 +1,156 @@
+html {
+  background-color: #150829;
+  color: #ddd;
+  font-family: Bahnschrift, sans-serif;
+}
+
+body {
+  margin: 0px;
+}
+
+nav {
+  background-color: #4b2682;
+  display: flex;
+  /* FOR FIXED POSITON NAV:
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  */
+}
+
+nav > a {
+  text-decoration: none;
+  color: inherit;
+  padding: 8px 12px;
+  border-bottom: 2px solid #fff0;
+  transition: ease-out border-bottom 0.1s;
+}
+
+nav > a:hover, nav > a:active {
+  border-bottom: 2px solid #8544e8;
+}
+
+.split-right {
+  margin-left: auto;
+}
+
+/* HOME PAGE STYLING */
+
+h1 {
+  margin-left: 15%
+}
+
+.unmarked {
+  list-style: none;
+  padding: 0px;
+}
+
+.event {
+  width: 70%;
+  background-color: #47153d;
+  padding: 10px 15px;
+  border-radius: 20px;
+  margin: auto auto 30px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 50px 100px;
+}
+
+.event:active {
+  background-color: #340027;
+}
+
+.event > h3 {
+  margin: 0px 0px 2px;
+  font-size: 24px;
+}
+
+.event > h3 > a {
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  z-index: 1;
+}
+
+.event > h3 > a::after {
+  display: block;
+  content: "";
+  width: 0%;
+  background-color: #30e69878; /* #13996087 */
+  transition: ease width 0.3s;
+  position: absolute;
+  bottom: 3px;
+  right: 0px;
+  z-index: -1;
+  height: 10px;
+}
+
+.event > h3 > a:hover::after, .event > h3 > a:active::after {
+  width: 100%;
+  left: 0px;
+  right: unset;
+}
+
+.task {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 10px;
+  background-color: #4e2c4e;
+  padding: 3px 5px;
+  border-radius: 5px;
+  color: #b99c9c;
+  margin: 10px 10px 0px 0px;
+  display: inline-block;
+}
+
+.task:active {
+  background-color: #3d103d;
+  color: #cca6a6
+}
+
+.endmsg {
+  text-align: center;
+}
+
+.add {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(90deg, rgba(21,8,41,1) 0%, rgba(153,19,153,1) 100%);
+  border: 2px solid rgb(153, 19, 153);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  fill: #D14646;
+}
+
+.add:hover {
+  fill: #33a876;
+}
+
+.add > svg {
+  height: 70px;
+  margin: auto;
+  border-radius: 48%/60%;
+  transition: ease all 0.2s;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.add > svg:hover {
+  height: 80px;
+  padding-right: unset;
+  padding: 0px;
+}
+
+@media screen and (max-width: 700px) {
+  .event {
+    width: unset;
+    border-radius: unset;
+  }
+
+  h1 {
+    margin-left: 15px;
+  }
+}
+
+/* AUTH FORM STYLING */
