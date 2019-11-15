@@ -63,14 +63,14 @@ h1 {
   font-size: 24px;
 }
 
-.event > h3 > a {
+a.fancy {
   text-decoration: none;
   color: inherit;
   position: relative;
   z-index: 1;
 }
 
-.event > h3 > a::after {
+a.fancy::after {
   display: block;
   content: "";
   width: 0%;
@@ -83,7 +83,7 @@ h1 {
   height: 10px;
 }
 
-.event > h3 > a:hover::after, .event > h3 > a:active::after {
+a.fancy:hover::after, a.fancy:active::after {
   width: 100%;
   left: 0px;
   right: unset;
@@ -140,6 +140,63 @@ h1 {
   height: 80px;
   padding-right: unset;
   padding: 0px;
+}
+
+#addmenu {
+  display: none;
+  position: fixed;
+  bottom: 124px;
+  right: 30px;
+  background-color: #4b2682;
+}
+
+#addmenu.open {
+  display: flex;
+  flex-direction: column;
+  width: 120px;
+  border-radius: 8px;
+}
+
+#addmenu > a {
+  padding: 5px 35px;
+  font-size: 20px;
+}
+
+#addmenu > a::before {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  background-color: #955aec;
+  z-index: -1;
+}
+
+#addmenu > a.fancy::after {
+  background-color: #7042b3;
+  bottom: 0px;
+  left: 20px;
+  z-index: -2;
+  height: 100%;
+  transition: cubic-bezier(.42,.74,.27,1.55) width 0.3s;
+}
+
+#addmenu > a:first-child {
+  margin-top: 8px;
+}
+
+#addmenu > a:first-child::before {
+  border-radius: 6px 6px 0px 0px;
+}
+
+#addmenu > a:last-child {
+  margin-bottom: 8px;
+}
+
+#addmenu > a:last-child::before {
+  border-radius: 0px 0px 6px 6px;
 }
 
 @media screen and (max-width: 700px) {
