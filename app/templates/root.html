@@ -11,6 +11,9 @@
     {% else %}
     <title>Grapes</title>
     {% endif %}
+    {{ moment.include_jquery() }}
+    {{ moment.include_moment() }}
+    {{ moment.locale(auto_detect=True) }}
     <script type="text/javascript">
 // This is the "Offline copy of pages" service worker
 
