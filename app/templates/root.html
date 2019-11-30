@@ -2,9 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    {% block linkedfiles %}
     <link rel='manifest' href='/static/pwa/manifest.webmanifest'>
     <link rel="apple-touch-icon" sizes="512x512" href="static/pwa/apple-touch-icon.png">
     <link rel="stylesheet" href="/static/css/master.css">
+    {% endblock %}
     <meta content="width=device-width, initial-scale=1" name="viewport">
     {% if title %}
     <title>{{ title }}</title>
@@ -37,6 +39,7 @@ if (navigator.serviceWorker.controller) {
     </script>
   </head>
   <body>
+    {% block nav %}
     <nav>
       {% if current_user.is_anonymous %}
       <a href="{{ url_for('index') }}">Home</a>
@@ -47,6 +50,7 @@ if (navigator.serviceWorker.controller) {
       <a href="{{ url_for('account') }}" class="split-right">Account</a>
       <a href="{{ url_for('signout') }}">Sign Out</a>
       {% endif %}
+    {% endblock %}
     </nav>
     {% block content %}{% endblock %}
   </body>
