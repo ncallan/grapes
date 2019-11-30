@@ -1,8 +1,12 @@
-var cacheName = 'grapes-static';
+var cacheName = 'grapes-cache';
 var filesToCache = [
   '/',
-  '/index.html',
-  '/master.css'
+  '/master.css',
+  '/splash.css',
+  '/home.css',
+  '/home',
+  'https://fonts.googleapis.com/css?family=Merriweather:400&amp;display=swap',
+  'https://use.typekit.net/izd0goo.css',
 ];self.addEventListener('install', function(e) {
   console.log('[ServiceWorker] Install');
   e.waitUntil(
