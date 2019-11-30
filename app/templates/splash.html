@@ -1,5 +1,32 @@
 {% extends "root.html" %}
 
 {% block content %}
-  <p>Welcome to appname</p>
+<link rel="stylesheet" href="/static/css/splash.css">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,700i,900&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.typekit.net/izd0goo.css">
+  <section class="hero">
+
+    <section class="intro-hook">
+      <h1>Simple.</h1>
+      <h1>Easy.</h1>
+      <h1>Reliable.</h1>
+      <h1 class="appname"><strong>Grapes.</strong></h1>
+    </section>
+
+    <section class="call-to-action">
+      <div>
+
+        <div>
+          <p class="prompt"><strong>Declutter your life</strong> with the last organization tool you'll ever need.</p>
+        </div>
+
+        <div>
+          <a href="{{ url_for('signin') }}">Log In</a>
+          <a href="{{ url_for('register') }}">Get Started</a>
+        </div>
+
+      </div>
+    </section>
+
+  </section>
 {% endblock %}

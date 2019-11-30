@@ -1,0 +1,57 @@
+:root {
+  --background-color: #000;
+  --foreground-color: #fff;
+}
+
+html {
+  background-color: var(--background-color);
+  color: var(--foreground-color);
+  font-family: Merriweather, serif;
+}
+
+body {
+  margin: 0px;
+}
+
+.hero {
+  height: 100vh;
+  padding-top: 250px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero > .intro-hook {
+  align-self: flex-start;
+  margin-left: 80px;
+}
+
+.intro-hook > h1 {
+  margin: 0px;
+  font-size: 80px;
+  font-weight: normal;
+
+}
+
+.intro-hook > .appname {
+  margin-top: 40px;
+  font-family: ff-tisa-sans-web-pro, sans-serif;
+  letter-spacing: 0.155em;
+}
+
+.call-to-action {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.call-to-action .prompt {
+  margin-top: 0px;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.call-to-action .prompt > strong {
+  font-weight: 900;
+}
