@@ -18,6 +18,13 @@ from app.forms import LoginForm
 def index():
     return render_template("splash.html")
 
+# Create alias to from /static/pwa/sw.js to /sw.js in order to allow for full-site service worker scope:
+
+
+@app.route("/sw.js")
+def serviceworker():
+    return app.send_static_file("pwa/sw.js")
+
 # User auth/deauth/register routes:
 
 
