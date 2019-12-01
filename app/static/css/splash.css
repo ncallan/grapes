@@ -1,37 +1,69 @@
 :root {
-  --background-color: #000;
+  --background-color: #0d0322;
   --foreground-color: #fff;
+  --highlight-color: #b386ea;
+  --animation-delay: 0.8s;
+  --animation-duration: 0.7s;
 }
 
 html {
   background-color: var(--background-color);
   color: var(--foreground-color);
-  font-family: Merriweather, serif;
+  font-family: ff-tisa-sans-web-pro, sans-serif;
 }
 
 body {
   margin: 0px;
 }
 
+@keyframes FadeIn {
+  0% {
+    opacity: 0;
+    padding-top: 10px
+  }
+
+  85% {
+    padding-top: 0px
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes ChangeColor {
+  from {
+    color: var(--foreground-color)
+  }
+
+  to {
+    color: var(--highlight-color)
+  }
+}
+
+.fadein {
+  animation: var(--animation-duration) linear calc(var(--index) * var(--animation-delay)) both FadeIn;
+}
+
+.logofade {
+  animation: var(--animation-duration) linear calc(var(--index) * var(--animation-delay) + 1s) both ChangeColor,  var(--animation-duration) linear calc(var(--index) * var(--animation-delay)) both FadeIn;
+}
+
 .hero {
   height: 100vh;
   padding-top: 250px;
+  padding-left: 80px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-
-.hero > .intro-hook {
-  align-self: flex-start;
-  margin-left: 80px;
+  align-items: flex-start;
 }
 
 .intro-hook > h1 {
   margin: 0px;
   font-size: 80px;
   font-weight: normal;
-
+  font-family: Merriweather, serif;
 }
 
 .intro-hook > .appname {
@@ -48,10 +80,40 @@ body {
 
 .call-to-action .prompt {
   margin-top: 0px;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 300;
+  border-left: 2px solid var(--foreground-color);
+  padding-left: 10px;
 }
 
 .call-to-action .prompt > strong {
   font-weight: 900;
+}
+
+.call-to-action a {
+  font-size: 30px;
+  color: var(--foreground-color);
+  display: inline-block;
+  text-decoration: none;
+}
+
+.call-to-action a:hover {
+  color: var(--highlight-color)
+}
+
+.call-to-action a:first-child {
+  position: relative;
+  margin-right: 10px;
+  padding-right: 10px;
+}
+
+.call-to-action a:first-child::after {
+	content: "";
+	height: 35px;
+	width: 2px;
+	background-color: var(--foreground-color);
+	position: absolute;
+	right: -1px;
+	top: 50%;
+	transform: translateY(-50%);
 }

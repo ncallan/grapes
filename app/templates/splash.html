@@ -1,19 +1,21 @@
 {% extends "root.html" %}
 
+{% block nav %}{% endblock %}
+
 {% block content %}
 <link rel="stylesheet" href="/static/css/splash.css">
-<link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,700i,900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:400&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://use.typekit.net/izd0goo.css">
   <section class="hero">
 
     <section class="intro-hook">
-      <h1>Simple.</h1>
-      <h1>Easy.</h1>
-      <h1>Reliable.</h1>
-      <h1 class="appname"><strong>Grapes.</strong></h1>
+      <h1 class="fadein" style="--index: 1;">Simple.</h1>
+      <h1 class="fadein" style="--index: 2;">Easy.</h1>
+      <h1 class="fadein" style="--index: 3;">Reliable.</h1>
+      <h1 class="appname logofade" style="--index: 4.5;"><strong>Grapes.</strong></h1>
     </section>
 
-    <section class="call-to-action">
+    <section class="call-to-action fadein" style="--index: 4.5;">
       <div>
 
         <div>
@@ -21,8 +23,9 @@
         </div>
 
         <div>
-          <a href="{{ url_for('signin') }}">Log In</a>
-          <a href="{{ url_for('register') }}">Get Started</a>
+          <a href="{{ url_for('signin') }}">Log In</a><a href="{{ url_for('register') }}">Get Started</a>
+          <!-- The a tags are on the same line in the raw HTML to prevent rendering whitespace text nodes inside inline formatting contexts.
+          See https://bugzilla.mozilla.org/show_bug.cgi?id=1304685 to learn more.-->
         </div>
 
       </div>
