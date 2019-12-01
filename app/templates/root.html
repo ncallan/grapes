@@ -2,18 +2,29 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <link rel='manifest' href='/static/pwa/manifest.webmanifest'>
-    <link rel="apple-touch-icon" sizes="512x512" href="static/pwa/apple-touch-icon.png">
-    <link rel="stylesheet" href="/static/css/master.css">
-    <link href="https://fonts.googleapis.com/css?family=Merriweather:400&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.typekit.net/izd0goo.css">
-    {% block linkedfiles %}{% endblock %}
     <meta content="width=device-width, initial-scale=1" name="viewport">
+
     {% if title %}
     <title>{{ title }}</title>
     {% else %}
     <title>Grapes</title>
     {% endif %}
+
+    <!--PWA-->
+    <link rel='manifest' href='/static/pwa/manifest.webmanifest'>
+    <link rel="apple-touch-icon" sizes="512x512" href="static/pwa/apple-touch-icon.png">
+
+    <!--Global Styles-->
+    <link rel="stylesheet" href="/static/css/master.css">
+
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/izd0goo.css">
+
+    <!--Page-Specific Styles/Resources-->
+    {% block linkedfiles %}{% endblock %}
+
+    <!--Service Worker-->
     <script src="/upup.min.js"></script>
     <script>
       UpUp.start({
