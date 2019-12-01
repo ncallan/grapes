@@ -1,0 +1,16 @@
+{% extends "root.html" %}
+
+{% block linkedfiles %}
+  <link rel="stylesheet" href="/static/css/offline.css">
+{% endblock %}
+
+{% block content %}
+    <h1>You are offline.</h1>
+    <p>Try again once you have connected to the Internet.</p>
+    <figure>
+      <img src="/static/images/offline-image.gif" alt="A cat frantically looking left and right.">
+      <figcaption>Cats search for WiFi too.</figcaption>
+    </figure>
+  </body>
+</html>
+{% endblock %}

@@ -18,6 +18,8 @@ from app.forms import LoginForm
 def index():
     return render_template("splash.html")
 
+# Service worker routes:
+
 # Create alias to from files in /static/pwa/<...> to /<...> in order to allow for full-site service worker scope:
 
 
@@ -29,6 +31,12 @@ def upupalias():
 @app.route("/upup.sw.min.js")
 def serviceworkeralias():
     return app.send_static_file("pwa/upup.sw.min.js")
+
+# Offline page for service worker:
+
+@app.route("/offline")
+def offline():
+    return render_template("offline.html")
 
 # User auth/deauth/register routes:
 
