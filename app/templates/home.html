@@ -1,5 +1,9 @@
 {% extends "root.html" %}
 
+{{ moment.include_jquery() }}
+{{ moment.include_moment() }}
+{{ moment.locale(auto_detect=True) }}
+
 {% block content %}
   <h1>Today</h1>
   {% if events %}
