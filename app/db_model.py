@@ -27,7 +27,6 @@ class User(UserMixin, db.Model):
     creationdate = db.Column(db.DateTime, default=datetime.now)
     events = db.relationship('Event', backref='owner')
     tasks = db.relationship('Task', backref='owner')
-    blocks = db.relationship('Block', backref='owner')
 
     def __repr__(self):
         return f"<User {self.email}>"
@@ -45,12 +44,9 @@ class Event(db.Model):
     id = db.Column(UUID(as_uuid=True), primary_key=True)
     title = db.Column(db.Text)
     location = db.Column(db.Text)
-    alert = db.Column(db.Boolean, default=False)
-    #alert_time = db.Column(db.DateTime)
     start = db.Column(db.DateTime, index=True)
     end = db.Column(db.DateTime)
     user_id = db.Column(UUID(as_uuid=True), db.ForeignKey("users.id"))
-    block_id = db.Column(UUID(as_uuid=True), db.ForeignKey("blocks.id"))
     tasks = db.relationship('Task', backref='requiredby')
 
     def __repr__(self):
@@ -61,27 +57,12 @@ class Task(db.Model):
     __tablename__ = "tasks"
     id = db.Column(UUID(as_uuid=True), primary_key=True)
     title = db.Column(db.Text)
+    link = db.Column(db.Text)
     event_id = db.Column(UUID(as_uuid=True),
                          db.ForeignKey("events.id"),
-                         nullable=True)
-    block_id = db.Column(UUID(as_uuid=True),
-                         db.ForeignKey("blocks.id"),
                          nullable=True)
     user_id = db.Column(UUID(as_uuid=True),
                         db.ForeignKey("users.id"))
 
     def __repr__(self):
         return f"<Task {self.title}>"
-
-
-class Block(db.Model):
-    __tablename__ = "blocks"
-    id = db.Column(UUID(as_uuid=True), primary_key=True)
-    title = db.Column(db.Text)
-    location = db.Column(db.Text)
-    alert = db.Column(db.Boolean)
-    user_id = db.Column(UUID(as_uuid=True), db.ForeignKey("users.id"))
-    events = db.relationship('Event', backref='parent')
-
-    def __repr__(self):
-        return f"<Block {self.title}>"
