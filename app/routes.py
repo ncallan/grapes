@@ -102,3 +102,11 @@ def events(eventID=None):
     if event is None:
         abort(404)
     return render_template("showevent.html", event=event)
+
+from uuid import uuid4
+@app.route("/registertest")
+def test():
+    db.session.add(User(id=uuid4(), email="callan@blair.edu", password="error"))
+    db.session.commit()
+    User.query.filter_by(email="callan@blair.edu").first().set_password("test")
+    return "success"
