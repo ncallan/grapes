@@ -60,15 +60,15 @@
   align-items: center;
 }
 
-.call-to-action .prompt {
-  margin-top: 0px;
+.prompt {
+  margin: 0px;
   font-size: 28px;
   font-weight: 300;
   border-left: 2px solid var(--foreground-color);
   padding-left: 10px;
 }
 
-.call-to-action .prompt > strong {
+.prompt > strong {
   font-weight: 900;
 }
 
@@ -98,4 +98,9 @@
 	right: -1px;
 	top: 50%;
 	transform: translateY(-50%);
+}
+
+.auth {
+  position: absolute;
+  right: 80px;
 }

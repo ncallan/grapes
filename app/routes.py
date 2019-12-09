@@ -16,7 +16,7 @@ from app.forms import LoginForm
 @app.route("/index")
 @app.route("/")
 def index():
-    return render_template("splash.html")
+    return render_template("splash.html", form=LoginForm())
 
 # Service worker routes:
 

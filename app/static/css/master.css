@@ -1,7 +1,9 @@
 :root {
   --background-color: #0d0322;
   --foreground-color: #fff;
+  --brand-foreground-color: #4b2682;
   --highlight-color: #b386ea;
+  --actionable-color: #21b382;
   --animation-delay: 0.8s;
   --animation-duration: 0.7s;
 }
@@ -14,4 +16,31 @@ html {
 
 body {
   margin: 0px;
+}
+
+
+nav {
+  background-color: var(--brand-foreground-color);
+  display: flex;
+  /* FOR FIXED POSITON NAV:
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  */
+}
+
+nav > a {
+  text-decoration: none;
+  color: inherit;
+  padding: 8px 12px;
+  border-bottom: 2px solid #fff0;
+  transition: ease-out border-bottom 0.1s;
+}
+
+nav > a:hover, nav > a:active {
+  border-bottom: 2px solid #8544e8;
+}
+
+.split-right {
+  margin-left: auto;
 }

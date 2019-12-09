@@ -1,29 +1,60 @@
 {% extends "root.html" %}
 
+{% block nav %}{% endblock %}
+
+{% block linkedfiles %}
+  <link rel="stylesheet" href="/static/css/signinform.css">
+  <link rel="stylesheet" href="/static/css/fullpageform.css">
+{% endblock %}
+
 {% block content %}
-<form action="" method="post" novalidate>
-  {% with messages = get_flashed_messages() %}
-  {% if messages %}
-    <ul>
-      {% for message in messages %}
-      <li>{{ message }}</li>
+  <form action="" method="post" novalidate>
+
+    <div class="formheader">
+      <h1 class="formtitle">Sign In</h1>
+
+      <span class="fillspace">or</span>
+
+      {% if current_user.is_anonymous %}
+      <a href="{{ url_for('index') }}" class="backbutton">Go Home</a>
+      {% else %}
+      <a href="{{ url_for('home') }}" class="backbutton">Go Home</a>
+      {% endif %}
+    </div>
+
+    {% with messages = get_flashed_messages() %}
+    {% for message in messages %}
+    <span class="error">{{ message }}</span>
+    {% endfor %}
+    {% endwith %}
+
+    {{ form.hidden_tag() }}
+
+    <div class="bigspace">
+      {{ form.email.label }}{{ form.email() }}
+      {% for error in form.email.errors %}
+      <span class="error">{{ error }}</span>
       {% endfor %}
-    </ul>
-  {% endif %}
-  {% endwith %}
-  {{ form.hidden_tag() }}
+    </div>
 
-  {{ form.email.label }} {{ form.email() }}
-  {% for error in form.email.errors %}
-  <span>{{ error }}</span>
-  {% endfor %}
+    <div class="bigspace">
+      {{ form.password.label }}{{ form.password() }}
+      {% for error in form.password.errors %}
+      <span class="error">{{ error }}</span>
+    {% endfor %}
+    </div>
 
-  {{ form.password.label }} {{ form.password() }}
-  {% for error in form.password.errors %}
-  <span>{{ error }}</span>
-  {% endfor %}
+    <div class="bigspace">
+      {{ form.remember_me.label }}{{ form.remember_me() }}
+    </div>
 
-  {{ form.remember_me.label }} {{ form.remember_me() }}
-  {{ form.submit() }}
-</form>
+    <div class="smallspace">
+      {{ form.submit() }}
+    </div>
+
+    <div class="smallspace">
+      <span class="switchform">Need an account? Click here.</span>
+    </div>
+
+  </form>
 {% endblock %}

@@ -1,0 +1,30 @@
+form {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.backbutton {
+  font-size: 28px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.backbutton::before {
+  content: "←";
+  padding: 0px 10px 0px 0px;
+}
+
+.backbutton:hover, .backbutton:focus {
+  color: var(--highlight-color);
+}
+
+.formheader {
+  display: flex;
+  align-content: center;
+}
+
+.fillspace {
+  margin: auto;
+}

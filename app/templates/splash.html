@@ -4,6 +4,7 @@
 
 {% block linkedfiles %}
   <link rel="stylesheet" href="/static/css/splash.css">
+  <link rel="stylesheet" href="/static/css/signinform.css">
 {% endblock %}
 
 {% block content %}
@@ -14,22 +15,50 @@
       <h1 class="fadein" style="--index: 2;">Easy.</h1>
       <h1 class="fadein" style="--index: 3;">Reliable.</h1>
       <h1 class="appname logofade" style="--index: 4.5;"><strong>Grapes.</strong></h1>
+      <p class="prompt fadein" style="--index: 4.5;"><strong>Declutter your life</strong> with the last organization tool you'll ever need.</p>
     </section>
 
-    <section class="call-to-action fadein" style="--index: 4.5;">
-      <div>
+    <section class="auth fadein" style="--index: 5.5;">
 
-        <div>
-          <p class="prompt"><strong>Declutter your life</strong> with the last organization tool you'll ever need.</p>
-        </div>
+      {% with messages = get_flashed_messages() %}
+      {% for message in messages %}
+      <span class="error">{{ message }}</span>
+      {% endfor %}
+      {% endwith %}
 
-        <div>
-          <a href="{{ url_for('signin') }}">Log In</a><a href="{{ url_for('register') }}">Get Started</a>
-          <!-- The a tags are on the same line in the raw HTML to prevent rendering whitespace text nodes inside inline formatting contexts.
-          See https://bugzilla.mozilla.org/show_bug.cgi?id=1304685 to learn more.-->
-        </div>
+        <form action="{{ url_for('signin')}}" method="post" novalidate>
 
-      </div>
+          <h2 class="formtitle">Sign In</h2>
+
+          {{ form.hidden_tag() }}
+
+          <div class="bigspace">
+            {{ form.email.label }}{{ form.email() }}
+            {% for error in form.email.errors %}
+            <span class="error">{{ error }}</span>
+            {% endfor %}
+          </div>
+
+          <div class="bigspace">
+            {{ form.password.label }}{{ form.password() }}
+            {% for error in form.password.errors %}
+            <span class="error">{{ error }}</span>
+          {% endfor %}
+          </div>
+
+          <div class="bigspace">
+            {{ form.remember_me.label }}{{ form.remember_me() }}
+          </div>
+
+          <div class="smallspace">
+            {{ form.submit() }}
+          </div>
+
+          <div class="smallspace">
+            <span class="switchform">Need an account? Click here.</span>
+          </div>
+
+        </form>
     </section>
 
   </section>
